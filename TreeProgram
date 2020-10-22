@@ -1,0 +1,41 @@
+
+public class SumTreeNodes {
+	static class treenode
+	{
+		int data;
+		treenode left=null;
+		treenode right=null;
+		
+		
+		
+	};
+	public static int sumnode(treenode root)
+	{
+		if(root==null)
+			return 0;
+		int sum=sumnode(root.left)+sumnode(root.right);
+		return(root.data+sum);
+	}
+	
+	public static treenode NewNode(int n)
+	{
+		treenode new_node=new treenode();
+		new_node.data=n;
+		new_node.left=null;
+		new_node.right=null;
+		return new_node;
+	}
+public static void main(String args [])
+{
+	treenode root=NewNode(15);
+	root.left= NewNode(10);
+	root.right=NewNode(20);
+	root.left.left=NewNode(8);
+	root.left.right=NewNode(12);
+	root.right.left=NewNode(16);
+	root.right.right=NewNode(25);
+	int result=sumnode(root);
+	System.out.println(result);
+	
+}
+}
